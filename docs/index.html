@@ -17,7 +17,7 @@
 <body>
   <header class="top wrap">
     <a class="brand" href="#top" aria-label="Research Atlas home"><span class="mark">a·</span><span>research atlas</span></a>
-      <nav aria-label="Main navigation"><a href="#platform">Platform</a><a href="#demo">Demo results</a><a href="#architecture">Architecture</a><a href="https://github.com/Tepeng0213/research-atlas">Source ↗</a></nav>
+      <nav aria-label="Main navigation"><a href="#platform">Platform</a><a href="#demo">Case studies</a><a href="#architecture">Architecture</a><a href="https://github.com/Tepeng0213/research-atlas">Source ↗</a></nav>
   </header>
   <main id="top">
     <section class="hero wrap">
@@ -42,12 +42,12 @@
       </div>
     </div></section>
     <section id="demo" class="section"><div class="wrap">
-      <div class="kicker">WHAT THE RESULTS VIEW LOOKS LIKE</div><h2>Review candidate properties, scores, and evidence gaps together.</h2><p class="intro">The workbench presents structured candidate summaries alongside review status. Real values appear only when the relevant scientific adapter has valid inputs.</p>
-      <div class="result-preview"><span class="result-label">SIMULATED DEMO DATA · NOT A SCIENTIFIC RESULT</span><h3>Illustrative screening summary</h3><p>Fictional placeholder values demonstrate the results interface only. No calculation was run to produce this table.</p>
-        <div class="table-wrap"><table class="mock-table"><thead><tr><th>Candidate</th><th>MW</th><th>cLogP</th><th>QED</th><th>Vina-like score*</th><th>Review state</th></tr></thead><tbody><tr><td>Demo candidate A</td><td>342.4</td><td>2.1</td><td>0.74</td><td>−8.2</td><td><span class="mock-status">Needs evidence</span></td></tr><tr><td>Demo candidate B</td><td>298.3</td><td>1.7</td><td>0.69</td><td>−7.6</td><td><span class="mock-status">Needs evidence</span></td></tr><tr><td>Demo candidate C</td><td>376.5</td><td>3.0</td><td>0.61</td><td>−6.9</td><td><span class="mock-status">Needs evidence</span></td></tr></tbody></table></div>
-        <p class="mock-caption">* Placeholder score for visual design only. Docking scores require prepared structures and do not establish binding affinity or activity.</p>
-      </div>
-      <img class="diagram" src="assets/mock-results.svg" alt="Illustrative mock screening results with fictional placeholder values and a prominent simulated data warning">
+      <div class="kicker">END-TO-END SCIENTIFIC WORKFLOWS</div><h2>See what each research package produces—and where evidence stops.</h2><p class="intro">One reference-ligand benchmark uses actual structure-derived descriptors, a Vina local-search score, and a retrosynthesis search. The cocrystal panel is a clearly labeled interface mockup with schematic experimental plots.</p>
+      <h3>1. Binding site → candidate assessment → synthesis route review</h3><p class="intro">ABL kinase PDB 1IEP with its known imatinib ligand is used as a reference case, not as a newly discovered hit. The example route search reports 40 proposals, zero stock-complete routes, and a precursor gap for chemist review.</p>
+      <img class="diagram" src="assets/drug-discovery-case.svg" alt="Detailed ABL kinase reference case showing PDB 1IEP, binding-site setup, ligand descriptors, a Vina reference-pose score, and AiZynthFinder route-stock results">
+      <h3 style="margin-top:48px">2. Drug pair → cocrystal screen → thermal and PXRD review</h3><p class="intro">The fictional pair illustrates counterpart evidence, conceptual and virtual screening, preparation planning, and the measured data required for a solid-form decision. No cocrystal probability or phase identity is invented.</p>
+      <img class="diagram" src="assets/cocrystal-case.svg" alt="Detailed drug-drug cocrystal workflow mockup with a fictional pair, evidence gates, preparation planning, and explicitly schematic DSC and PXRD plots">
+      <p class="note"><a href="https://github.com/Tepeng0213/research-atlas/blob/main/docs/case-studies.md">Read case-study inputs, method versions, and interpretation notes ↗</a></p>
     </div></section>
     <section id="architecture" class="section"><div class="wrap">
       <div class="kicker">PLATFORM ARCHITECTURE</div><h2>Shared orchestration, swappable scientific capabilities.</h2><p class="intro">A lightweight local-first stack keeps domain workflows configurable while scientific calculations run through bounded adapters.</p>

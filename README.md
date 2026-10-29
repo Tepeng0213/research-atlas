@@ -28,11 +28,17 @@ The first two domain packs use this shared pattern:
 
 ![Small-molecule discovery and drug-drug cocrystal workflows, ending in evidence review and researcher approval](docs/assets/workflows.svg)
 
-## Illustrative results preview
+## End-to-end workflow examples
 
-**This is a UI mockup. Candidate labels and values are fictional placeholders; no scientific calculation produced them.** The application displays real adapter outputs only when the required inputs and dependencies are available, with method limits and evidence gaps alongside the result.
+The small-molecule example uses the known imatinib-bound ABL kinase structure PDB 1IEP as a reference-ligand benchmark. It includes calculated ligand descriptors, a Vina local-search score, and an actual AiZynthFinder search that exposes an incomplete historical-stock route. This is not a newly discovered inhibitor or a validated synthesis route.
 
-![Illustrative mock screening results with fictional placeholder values and a simulated-data warning](docs/assets/mock-results.svg)
+![ABL kinase reference case: binding-site workflow, imatinib descriptors, Vina score, and retrosynthesis stock-gap review](docs/assets/drug-discovery-case.svg)
+
+The cocrystal example is an explicitly labeled UI mockup for a fictional drug pair. It shows counterpart evidence, conceptual and virtual screening limits, thermal-data inputs, preparation planning, PXRD review, and schematic-only plots.
+
+![Drug-drug cocrystal workflow mockup with evidence gates, preparation planning, and schematic DSC and PXRD traces](docs/assets/cocrystal-case.svg)
+
+See [the detailed case-study notes](docs/case-studies.md) for inputs, software versions, output interpretation, and scientific limitations.
 
 ## Local development
 
@@ -122,7 +128,7 @@ The workflow state machine is `draft → queued → running → awaiting_review 
 
 For a public portfolio, a sensible progression is:
 
-1. Publish a cleaned public GitHub repository with this README, architecture and workflow diagrams, optional sanitized screenshots or a short demo video, and a clear limitations section.
+1. Publish a cleaned public GitHub repository with this README, architecture and workflow diagrams, end-to-end case studies, optional sanitized screenshots or a short demo video, and a clear limitations section.
 2. Host a static portfolio/case-study page on GitHub Pages or another static host. Link to the source repository and demo video.
 3. If an interactive demo is important, deploy one protected instance to a container host with HTTPS, persistent storage, environment-managed secrets, and backups. Use synthetic/public sample inputs only. Keep the service at one instance until SQLite and the single-worker design are replaced.
 
