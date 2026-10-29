@@ -1,0 +1,10 @@
+# Intel Mac / Python 3.11 tested versions. See requirements-science.lock for full freeze.
+rdkit==2023.9.6
+numpy==1.26.4
+scipy==1.13.1
+biopython==1.85
+gemmi==0.7.5
+meeko==0.7.1
+aizynthfinder==4.3.2
+numba==0.59.1
+argon2-cffi-bindings==21.2.0

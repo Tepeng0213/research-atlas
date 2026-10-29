@@ -1,0 +1,10 @@
+{
+  "molecules":[{"name":"Aspirin input example","smiles":"CC(=O)Oc1ccccc1C(=O)O","role":"seed"},{"name":"Benzamide input example","smiles":"NC(=O)c1ccccc1"}],
+  "generate_analogs":true,
+  "allow_public_lookup":false,
+  "max_candidates":12,
+  "max_docking_ligands":2,
+  "max_retro_targets":1,
+  "exhaustiveness":4,
+  "target":{}
+}

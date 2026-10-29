@@ -1,0 +1,9 @@
+[project]
+name = "research-workbench"
+version = "0.2.0"
+description = "Local multi-agent research workbench with installable domain packs"
+requires-python = ">=3.9"
+dependencies = []
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

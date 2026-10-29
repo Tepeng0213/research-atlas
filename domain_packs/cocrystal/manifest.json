@@ -1,0 +1,21 @@
+{
+  "id": "cocrystal",
+  "name": "Drug–Drug Cocrystal Development",
+  "version": "0.1.0",
+  "order": 20,
+  "description": "Model drug → counterpart selection → conceptual, virtual, and thermal screening → preparation and evaluation",
+  "input_label": "Model drug and development objective",
+  "placeholder": "Example: identify a cocrystal counterpart supported by combination-therapy evidence and a compatible dose ratio",
+  "stages": [
+    {"id":"scope","name":"Research Scope and Strategy","role":"Orchestrator","tool":"research.scope","instruction":"Define the model drug, combination-therapy objective, dose, route of administration, and solid-state properties to improve."},
+    {"id":"pairing","name":"Counterpart Drug Selection","role":"Combination Pharmacology Scientist","tool":"cocrystal.pair","instruction":"Assess pharmacological evidence and cocrystal compatibility separately. Review dose ratio, pharmacokinetic compatibility, and interactions. Do not infer clinical benefit."},
+    {"id":"concept","name":"Conceptual Screening","role":"Supramolecular Chemist","tool":"cocrystal.concept","instruction":"Assess acid–base tendencies, hydrogen-bond synthons, functional groups, and conformational complementarity. ΔpKa alone does not establish cocrystal formation."},
+    {"id":"virtual","name":"Computational and Virtual Screening","role":"Computational Chemist","tool":"cocrystal.screen","instruction":"Review model applicability, formation propensity, intermolecular interactions, and thermodynamic evidence. Do not report a probability without a calibrated model."},
+    {"id":"thermal","name":"Thermal Screening","role":"Phase-Behavior Scientist","tool":"cocrystal.thermal","instruction":"Distinguish predicted phase behavior from measured DSC/TGA. Plan validation of phase diagrams, stoichiometry, and solid-state transitions."},
+    {"id":"preparation","name":"Cocrystal Preparation Planning","role":"Crystallization Scientist","tool":"cocrystal.prepare","instruction":"Select among grinding, slurry, and evaporation approaches based on evidence and required data. Do not invent executable experimental conditions."},
+    {"id":"evaluation","name":"Characterization and Feedback","role":"Solid-State Characterization Scientist","tool":"cocrystal.evaluate","instruction":"Plan PXRD, DSC, composition, impurity phases, dissolution, stability, and repeatability assessment. Do not call an unknown pair negative without specific experimental conditions."},
+    {"id":"critic","name":"Evidence and Experimental Review","role":"Independent Reviewer","tool":"research.critique","instruction":"Review evidence for a new phase, improved properties, and therapeutic benefit. Specify grounds for changing conditions or replacing candidates."},
+    {"id":"review","name":"Researcher Review","role":"Researcher","kind":"approval"},
+    {"id":"report","name":"Research Deliverable and Next Steps","role":"Orchestrator","tool":"research.report","instruction":"Summarize actual outputs and gaps. A new solid form is not automatically a new chemical entity, patentable invention, or therapeutic advantage."}
+  ]
+}

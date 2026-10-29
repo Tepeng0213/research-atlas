@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Research Atlas: a multi-agent scientific workbench for molecular discovery and drug–drug cocrystal research.">
+  <title>Research Atlas · Scientific Workbench</title>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/auth.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <aside class="sidebar">
+    <a class="brand" href="/"><span class="brand-mark">a<span>•</span></span><span>research atlas<small>AI SCIENTIFIC WORKBENCH</small></span></a>
+    <div class="workspace-label">WORKSPACE <span>LOCAL</span></div>
+    <label class="workspace-picker"><span class="sr-only">Current workspace</span><select id="workspace-select"></select><small id="workspace-role"></small></label>
+    <nav aria-label="Main navigation">
+      <button class="nav-item active" data-view="workspace"><span>▦</span> Research Workspace</button>
+      <button class="nav-item" data-view="domains"><span>◈</span> Domains &amp; Capabilities</button>
+      <button class="nav-item" data-view="settings"><span>⚙</span> Runtime Settings</button>
+      <button class="nav-item" data-view="team"><span>♧</span> Team &amp; Access</button>
+      <button class="nav-item" data-view="account"><span>◎</span> My Account</button>
+    </nav>
+    <div class="side-section"><div class="section-label">RESEARCH PROJECTS <button id="add-project" aria-label="Create project">＋</button></div><div id="project-list"></div></div>
+    <div class="sidebar-bottom"><span class="live-dot"></span> <span id="connection">Connecting to local service</span><small>LOCAL EDITION · v0.3</small></div>
+  </aside>
+  <main>
+    <header class="topbar"><span id="breadcrumb">Workspace <span>/</span> Research</span><div class="top-meta"><span class="local-chip">◉ LOCAL</span><button class="avatar account-avatar" data-view="account" id="user-avatar" aria-label="My account">R</button></div></header>
+    <div id="app" aria-live="polite"></div>
+  </main>
+  <dialog id="create-dialog">
+    <form id="create-form">
+      <div class="dialog-head"><div><div class="eyebrow">NEW RESEARCH</div><h2>Start a Research Run</h2></div><button type="button" class="icon-button" id="close-dialog" aria-label="Close">×</button></div>
+      <p class="muted">Choose a domain and provide scientific inputs. Add structures or spectra after creating the draft.</p>
+      <label>Domain<select name="pack_id" id="pack-select"></select></label>
+      <label>Research project<select name="project_id" id="project-select"></select></label>
+      <label>Run title<input name="title" required maxlength="120" placeholder="Give this research run a descriptive title"></label>
+      <label><span id="objective-label">Research objective</span><textarea name="objective" id="objective" required maxlength="6000" rows="3"></textarea></label>
+      <label>Constraints and existing evidence <span class="optional">Optional</span><textarea name="constraints" maxlength="6000" rows="2" placeholder="Known molecules, data sources, equipment, budget, or properties to improve"></textarea></label>
+      <label>Scientific inputs <span class="optional">JSON; structures and spectra can be uploaded after creation</span><textarea name="science_json" id="science-input" rows="6" placeholder='{"molecules":[{"name":"Model compound","smiles":"...","role":"model"}]}'></textarea></label>
+      <button type="button" class="text-button" data-fill-science>Load domain input example (not a drug recommendation)</button>
+      <p class="form-hint">Supports SMI/SDF/CSV molecules, PDB/mmCIF structures, PDBQT receptors, and DSC/TGA/PXRD CSV. Public lookups are disabled by default.</p>
+      <div class="model-options"><label class="checkbox-label"><input type="checkbox" name="use_model" id="use-model">Use the configured language model for agent advice</label><label class="call-limit">Request limit<input name="max_model_calls" type="number" min="0" max="20" value="4"></label></div>
+      <p class="form-hint" id="model-hint"></p><p id="form-error" class="error-text" role="alert"></p>
+      <button class="button primary full" type="submit">Create Research Run <span>↗</span></button>
+    </form>
+  </dialog>
+  <dialog id="project-dialog"><form id="project-form"><div class="dialog-head"><h2>Create Project</h2><button type="button" class="icon-button" id="close-project" aria-label="Close">×</button></div><label>Project name<input name="name" required maxlength="100" placeholder="e.g. Solid-State Formulation Program"></label><p id="project-error" class="error-text"></p><button class="button primary full" type="submit">Create Project</button></form></dialog>
+  <div id="toast" role="status"></div>
+</body>
+</html>

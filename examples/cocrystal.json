@@ -1,0 +1,6 @@
+{
+  "molecules":[{"name":"Caffeine structure example","smiles":"Cn1c(=O)c2c(ncn2C)n(C)c1=O","role":"model"},{"name":"Benzoic acid structure example","smiles":"O=C(O)c1ccccc1","role":"candidate","pka_acid":4.2}],
+  "mol_ratio":[1,1],
+  "allow_public_lookup":false,
+  "spectra":{}
+}

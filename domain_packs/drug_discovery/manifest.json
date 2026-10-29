@@ -1,0 +1,19 @@
+{
+  "id": "drug_discovery",
+  "name": "Small-Molecule Drug Discovery",
+  "version": "0.1.0",
+  "order": 10,
+  "description": "Target and binding site → candidate discovery and optimization → retrosynthesis → experimental feedback",
+  "input_label": "Target / binding site",
+  "placeholder": "Example: EGFR L858R, ATP-binding pocket; prioritize selectivity and solubility",
+  "stages": [
+    {"id":"scope","name":"Research Scope and Strategy","role":"Orchestrator","tool":"research.scope","instruction":"Identify the target, binding site, mechanism, constraints, and data gaps. Define a bounded research plan."},
+    {"id":"structure","name":"Structure and Binding-Site Analysis","role":"Structural Biologist","tool":"structure.prepare","instruction":"Review structure provenance, conformation, missing residues, cofactors, protonation, and site definition. Specify required inputs when the structure is missing."},
+    {"id":"design","name":"Candidate Discovery and Optimization","role":"Medicinal Chemist","tool":"molecule.design","instruction":"Plan known-ligand retrieval, library screening, and modifications to supplied molecules. State evidence and validation steps for each proposal."},
+    {"id":"assay","name":"Binding and Multi-Property Assessment","role":"Computational Scientist","tool":"molecule.evaluate","instruction":"Assess binding modes, selectivity, ADMET, applicability domain, and multi-objective tradeoffs. Distinguish predictions from experimental activity."},
+    {"id":"synthesis","name":"Synthesis and Building-Block Review","role":"Retrosynthesis Chemist","tool":"synthesis.plan","instruction":"Assess retrosynthetic routes, building-block availability, reaction precedents, stereoselectivity, and conditions. Do not invent routes, yields, stock, or experimental conditions."},
+    {"id":"critic","name":"Evidence and Experimental Review","role":"Independent Reviewer","tool":"research.critique","instruction":"Review evidence, contradictions, and gaps in prior outputs. Specify experiments and criteria for the next iteration."},
+    {"id":"review","name":"Researcher Review","role":"Researcher","kind":"approval"},
+    {"id":"report","name":"Research Deliverable and Next Steps","role":"Orchestrator","tool":"research.report","instruction":"Summarize actual outputs and preserve capability gaps. Distinguish plans, predictions, and measurements."}
+  ]
+}
