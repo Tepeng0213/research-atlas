@@ -1,5 +1,7 @@
 # Research Atlas
 
+**Portfolio:** [Project overview](https://tepeng0213.github.io/research-atlas/) · **Source:** [GitHub repository](https://github.com/Tepeng0213/research-atlas)
+
 **A multi-agent scientific workbench for small-molecule discovery and drug–drug cocrystal research.** Research Atlas combines reusable workflow orchestration with domain-specific scientific adapters, evidence tracking, and researcher review.
 
 > Research software prototype. A completed workflow is not evidence of drug efficacy, clinical synergy, synthetic feasibility, or cocrystal formation. Results must be interpreted within each method's stated limits and validated experimentally.
