@@ -18,6 +18,22 @@ Research Atlas is a local-first, full-stack research prototype built with Python
 - Isolated scientific workers with a 240-second stage timeout; model and email credentials are not passed to those workers.
 - Explicit distinction between computed results, partial results, missing scientific inputs, missing dependencies, and failures.
 
+## Project design
+
+The same orchestration runtime can host multiple scientific domains. Domain packs define the stages and specialist roles; adapters provide calculations; the runtime records evidence, open requirements, and researcher review.
+
+![Research Atlas architecture: reusable domain packs, shared multi-agent runtime, scientific adapters, and traceable outputs](docs/assets/architecture.svg)
+
+The first two domain packs use this shared pattern:
+
+![Small-molecule discovery and drug-drug cocrystal workflows, ending in evidence review and researcher approval](docs/assets/workflows.svg)
+
+## Illustrative results preview
+
+**This is a UI mockup. Candidate labels and values are fictional placeholders; no scientific calculation produced them.** The application displays real adapter outputs only when the required inputs and dependencies are available, with method limits and evidence gaps alongside the result.
+
+![Illustrative mock screening results with fictional placeholder values and a simulated-data warning](docs/assets/mock-results.svg)
+
 ## Local development
 
 The basic application runs on Python 3.9 or later. The scientific environment is pinned for Python 3.11. On macOS, `start.command` uses `.venv` when present and falls back to the system Python for the basic app.
@@ -106,7 +122,7 @@ The workflow state machine is `draft → queued → running → awaiting_review 
 
 For a public portfolio, a sensible progression is:
 
-1. Publish a cleaned public GitHub repository with this README, a software architecture diagram, sanitized screenshots, a short demo video, and a clear limitations section.
+1. Publish a cleaned public GitHub repository with this README, architecture and workflow diagrams, optional sanitized screenshots or a short demo video, and a clear limitations section.
 2. Host a static portfolio/case-study page on GitHub Pages or another static host. Link to the source repository and demo video.
 3. If an interactive demo is important, deploy one protected instance to a container host with HTTPS, persistent storage, environment-managed secrets, and backups. Use synthetic/public sample inputs only. Keep the service at one instance until SQLite and the single-worker design are replaced.
 
